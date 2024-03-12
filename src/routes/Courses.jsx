@@ -38,7 +38,7 @@ const Courses = () => {
                 {courses.length === 0? "Cadastrar cursos":(
                     courses.map((course) => 
                     <li className="course" key={course.id}>
-                        <Link to= "/Subjects" > {course.name}</Link>
+                        <Link to="/course/1"> {course.name}</Link>
                     </li>
                     )
                 )}

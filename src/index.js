@@ -11,18 +11,20 @@ import Courses from "./routes/Courses";
 import Subjects from "./routes/Subjects";
 
 const router = createBrowserRouter([
-  { path: "/", element: <App />, children: [
-    { path: "/", element: <Home /> },
-    { path: "Courses", element: <Courses /> },
-    { path: "Subjects", element: <Subjects /> }
-  ]}
+  {
+    path: "/", element: <App />, children: [
+      { path: "/", element: <Home /> },
+      { path: "/courses", element: <Courses /> },
+      { path: "/course/:id", element:  <Subjects/> }
+    ]
+  }
 
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router = {router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
