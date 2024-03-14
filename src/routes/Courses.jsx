@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const Courses = () => {
    
     const [courses, setCourses] = useState([]);
-
+    
     const getCourses = async() => {
         try {
             const response = await axios({method: "post", 
@@ -29,8 +29,6 @@ const Courses = () => {
         getCourses();
     },[])
 
-   
-    
     return (
         <div>
             <h1>Courses</h1>
@@ -38,7 +36,10 @@ const Courses = () => {
                 {courses.length === 0? "Cadastrar cursos":(
                     courses.map((course) => 
                     <li className="course" key={course.id}>
-                        <Link to="/course/1"> {course.name}</Link>
+                        <Link 
+                        to="/subjects" 
+                        state={{"courseId": course.id, "courseName": course.name}}
+                        >{course.name}</Link>
                     </li>
                     )
                 )}

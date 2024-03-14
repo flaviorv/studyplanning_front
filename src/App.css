@@ -1,3 +1,61 @@
+*{
+  background-color: #282c34;
+  color: beige;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Error {
+  color: crimson;
+  font-size: 0.7em;
+  width: max-content;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  text-align: left;
+  font-weight: bold;
+  font-size: large;
+ 
+}
+
+.InputGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+input {
+  margin: 4px;
+  height: 20px;
+  background-color: beige;
+  color: black;
+  font-weight: bolder;
+}
+
+button {
+  width: fit-content;
+  font-size: larger;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  background-color: rgb(235, 108, 91);
+  align-self: center;
+  color: black;
+}
+
 .App {
   text-align: center;
 }
