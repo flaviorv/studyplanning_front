@@ -1,11 +1,14 @@
 import React from "react";
-import LoginForm from "../components/LoginForm";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+    const {studentName, studentId} = useLocation();
     return (
         <div>
             <h1>Study Planning</h1>
-            <LoginForm />            
+            <h2>Home</h2>            
+            <p>{studentName}</p>
+            <p>{studentId}</p>
 
         </div>
     );

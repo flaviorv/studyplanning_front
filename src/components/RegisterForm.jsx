@@ -1,19 +1,35 @@
 import {useForm} from "react-hook-form";
 import validator from "validator";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 const RegisterForm = ()=> {
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     const watchPassword = watch("password");
-
+    const navigate = useNavigate();
+   
     const onSubmit = (data) => {
-        alert(data.email + data.password);
-        console.log(JSON.stringify(data));
+        registerStudent(data);
     };
-    
+
+    const registerStudent = async (data) => {
+        try {
+            await axios.post("http://localhost:8080/register", data);
+            let message = "Estudante cadastrado com sucesso.";
+            alert(message);
+            navigate("/login");
+        } catch (error) {
+            let message = "Erro ao cadastrar estudante."
+            console.log(error.message);
+            alert(message);
+        }
+    }
+
     return (
         <div className="Form">
             <h3>Registro de Estudante</h3>
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="InputGroup">
                     <label >Nome</label>
                     <input type="text" maxLength={50} {...register("name", {required: true})}/>
@@ -33,13 +49,13 @@ const RegisterForm = ()=> {
                 </div>
                 <div className="InputGroup">
                     <label >Confirmar Senha</label>
-                    <input type="password" maxLength={15} {...register("confirmPassword", {required: true, minLength: 3, validate: (value) => value === watchPassword })}/>
+                    <input type="password" maxLength={15} {...register("confirmPassword", {required: true, minLength: 3, validate: (value) => value === watchPassword, shouldUnregister: true })}/>
                     {errors?.confirmPassword?.type === "minLength" && (<p className="Error">Senha deve ter 3 caracteres ou mais</p>)}
                     {errors?.confirmPassword?.type === "required" && (<p className="Error">Insira a confirmação da senha</p>)}
                     {errors?.confirmPassword?.type === "validate" && (<p className="Error">Senhas não são iguais</p>)}
 
                 </div>
-                <button onClick={(e) => handleSubmit(onSubmit, e.preventDefault())()}>Confirmar</button>
+                <button type="submit" >Confirmar</button>
             </form>
         </div>
     )

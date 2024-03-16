@@ -5,19 +5,16 @@ import {Link} from "react-router-dom";
 const Courses = () => {
    
     const [courses, setCourses] = useState([]);
-    
-    const getCourses = async() => {
+   
+    const getCourses = async(_student) => {
+        const student = 
+            {
+                "id": 1,
+                
+        }
+        
         try {
-            const response = await axios({method: "post", 
-                url: "http://localhost:8080/courses",
-                data: { 
-                    "id": 2,
-                    "name": "Glennasdfa Reichert",
-                    "email": "Chaim_McDermott@dana.io",
-                    "password": ".........."
-            
-                }
-            });
+            const response = await axios.post("http://localhost:8080/courses", student);
             const data = response.data;
             setCourses(data);
         } catch (error) {

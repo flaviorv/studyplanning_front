@@ -1,5 +1,6 @@
 import RegisterForm from "../components/RegisterForm";
-const Register = () => {
+
+const Register = () => {        
     return (
         <div>
             <RegisterForm/>

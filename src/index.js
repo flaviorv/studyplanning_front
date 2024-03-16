@@ -10,15 +10,23 @@ import Home from "./routes/Home";
 import Courses from "./routes/Courses";
 import Subjects from "./routes/Subjects";
 import Register from "./routes/Register";
+import Login from "./routes/Login";
+
 const router = createBrowserRouter([
   {
     path: "/", element: <App />, children: [
-      { path: "/", element: <Home /> },
-      { path: "/courses", element: <Courses/> },
-      { path: "/subjects", element: <Subjects/> },
-      { path: "/register", element: <Register/> },
+      { path: "/home", element: <Home /> },
+      { path: "/courses", element: <Courses /> },
+      { path: "/subjects", element: <Subjects /> },
+
     ]
-  }
+  },
+  { path: "/login", element: <Login /> },
+  { path: "/register", element: <Register />, children:[
+    
+  ] },
+
+
 
 ]);
 

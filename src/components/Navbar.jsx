@@ -8,11 +8,9 @@ const Navbar = () => {
                 <span>Study Planning</span>
             </div>
             <div className="NavLink">
-                <Link to="/">Home</Link>
-                <Link to="/courses">Cursos</Link>
-                <Link to="/register">Registrar-se</Link>
+                <Link to="/home">Home</Link>
+                <Link to="/courses" >Cursos</Link>
             </div>
-            
         </nav>
     );
 };

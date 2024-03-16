@@ -1,12 +1,15 @@
 import {useForm} from "react-hook-form";
 import validator from "validator";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = ()=> {
     const {register, handleSubmit, formState: {errors}} = useForm();
+    const navigate = useNavigate();
     
     const onSubmit = (data) => {
         alert(data.email + data.password);
-        console.log(JSON.stringify(data));
+        console.log(data);
+        navigate("/home");
     };
     
     return (
