@@ -6,27 +6,17 @@ import reportWebVitals from './reportWebVitals';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Home from "./routes/Home";
 import Courses from "./routes/Courses";
 import Subjects from "./routes/Subjects";
 import Register from "./routes/Register";
 import Login from "./routes/Login";
 
 const router = createBrowserRouter([
-  {
-    path: "/", element: <App />, children: [
-      { path: "/home", element: <Home /> },
-      { path: "/courses", element: <Courses /> },
-      { path: "/subjects", element: <Subjects /> },
-
-    ]
-  },
   { path: "/login", element: <Login /> },
-  { path: "/register", element: <Register />, children:[
-    
-  ] },
-
-
+  { path: "/register", element: <Register /> },
+  { path: "/", element: <App /> },
+  { path: "/courses", element: <Courses /> },
+  { path: "/subjects", element: <Subjects /> },
 
 ]);
 

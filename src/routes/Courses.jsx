@@ -1,20 +1,15 @@
 import {React, useState, useEffect } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 const Courses = () => {
    
     const [courses, setCourses] = useState([]);
-   
-    const getCourses = async(_student) => {
-        const student = 
-            {
-                "id": 1,
-                
-        }
-        
+    const {state} = useLocation();
+    
+    const getCourses = async() => {
         try {
-            const response = await axios.post("http://localhost:8080/courses", student);
+            const response = await axios.post("http://localhost:8080/courses", {"id": state.id});
             const data = response.data;
             setCourses(data);
         } catch (error) {
@@ -23,20 +18,21 @@ const Courses = () => {
     }
 
     useEffect(()=>{
-        getCourses();
+        getCourses()
     },[])
 
     return (
         <div>
             <h1>Courses</h1>
             <h2>
-                {courses.length === 0? "Cadastrar cursos":(
+                {courses.length === 0? <a href="">cadastrar curso</a>:(
                     courses.map((course) => 
-                    <li className="course" key={course.id}>
+                    <li className="Courses" key={course.id}>
                         <Link 
-                        to="/subjects" 
-                        state={{"courseId": course.id, "courseName": course.name}}
-                        >{course.name}</Link>
+                            to="/subjects" 
+                            state={{"courseId": course.id, "courseName": course.name, "student": state}}
+                            >{course.name}
+                        </Link>
                     </li>
                     )
                 )}

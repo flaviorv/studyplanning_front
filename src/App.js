@@ -1,27 +1,14 @@
 import './App.css';
-import { Outlet, useNavigate } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import { useEffect } from 'react';
+import Courses from './routes/Courses';
+import {useNavigate} from "react-router-dom";
+
+
 
 function App() {
-
   const navigate = useNavigate();
-  const { student } = "";
-
-
-  useEffect(() => {
-    if (!student) {
-      navigate("/login");
-    } else {
-      navigate("/home");
-    }
-  }, [navigate])
-
+  navigate("/login");
   return (
-
     <div className="App">
-      <Navbar />
-      <Outlet />
     </div>
   );
 }
