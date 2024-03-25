@@ -11,8 +11,8 @@ const Subjects = () => {
             const response = await axios.post("http://localhost:8080/subjects", 
                 {"id": state.courseId}
             )
-        const data = response.data;
-        setSubjects(data);
+            const data = response.data;
+            setSubjects(data);
         } catch (error) {
             console.log("Erro ao listar matérias.");
         }
@@ -20,7 +20,7 @@ const Subjects = () => {
 
     useEffect(()=>{ 
         getSubjects()
-    },[])
+    })
     
     
     return(
@@ -32,8 +32,9 @@ const Subjects = () => {
                 <p>Id Curso {state.courseId}</p>
             </h2>
             <h3>Matérias</h3>
+            <a href="/registersubject">Cadastrar Matéria</a>
             <h2>
-                {subjects.length === 0 ? <a href="/registersubject">cadastrar matéria</a> : (
+                {subjects.length === 0 ? <span>Nenhuma matéria cadastrada por enquanto.</span> : (
                     subjects.map((subject) =>
                         <li className="Subjects" key={subject.id}>
                             <Link

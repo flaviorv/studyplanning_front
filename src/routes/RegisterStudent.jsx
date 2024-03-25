@@ -3,7 +3,7 @@ import validator from "validator";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Register = () => {        
+const RegisterStudent = () => {        
     const {register, handleSubmit, watch, formState: {errors}} = useForm();
     const watchPassword = watch("password");
     const navigate = useNavigate();
@@ -60,4 +60,4 @@ const Register = () => {
     )   
 }
 
-export default Register;
+export default RegisterStudent;

@@ -33,7 +33,7 @@ const Login = () => {
     
     return (
         <div className="Form">
-            <a href="/register">Registrar</a>
+            <a href="/registerstudent">Registrar</a>
             <h3>Acessar Conta</h3>
             <form>
             <div className="InputGroup">

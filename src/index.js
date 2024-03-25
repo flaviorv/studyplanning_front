@@ -8,15 +8,19 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Courses from "./routes/Courses";
 import Subjects from "./routes/Subjects";
-import Register from "./routes/Register";
+import RegisterStudent from "./routes/RegisterStudent";
 import Login from "./routes/Login";
+import Weeks from "./routes/Weeks";
+import CurrentWeek from "./routes/CurrentWeek"
 
 const router = createBrowserRouter([
   { path: "/login", element: <Login /> },
-  { path: "/register", element: <Register /> },
+  { path: "/registerstudent", element: <RegisterStudent /> },
   { path: "/", element: <App /> },
   { path: "/courses", element: <Courses /> },
   { path: "/subjects", element: <Subjects /> },
+  { path: "/weeks", element: <Weeks/>},
+  { path: "/currentweek", element: <CurrentWeek/>}
 
 ]);
 

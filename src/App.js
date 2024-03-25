@@ -1,5 +1,4 @@
 import './App.css';
-import Courses from './routes/Courses';
 import {useNavigate} from "react-router-dom";
 
 
