@@ -9,7 +9,7 @@ const Courses = () => {
     
     const getCourses = async() => {
         try {
-            const response = await axios.post("http://localhost:8080/courses", {"id": state.id});
+            const response = await axios.post("http://localhost:8080/courses", {"id": state.student.id});
             const data = response.data;
             setCourses(data);
         } catch (error) {
@@ -30,7 +30,7 @@ const Courses = () => {
                     <li className="Courses" key={course.id}>
                         <Link 
                             to="/subjects" 
-                            state={{"courseId": course.id, "courseName": course.name, "student": state}}
+                            state={{"course": course, "student": state.student}}
                             >{course.name}
                         </Link>
                     </li>

@@ -6,12 +6,12 @@ import reportWebVitals from './reportWebVitals';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Courses from "./routes/Courses";
-import Subjects from "./routes/Subjects";
-import RegisterStudent from "./routes/RegisterStudent";
-import Login from "./routes/Login";
-import Weeks from "./routes/Weeks";
-import CurrentWeek from "./routes/CurrentWeek"
+import Courses from "./routes/Course/Courses";
+import Subjects from "./routes/Subject/Subjects";
+import RegisterStudent from "./routes/Student/RegisterStudent";
+import Login from "./routes/Student/Login";
+import Weeks from "./routes/Week/Weeks";
+import CurrentWeek from "./routes/Week/CurrentWeek"
 
 const router = createBrowserRouter([
   { path: "/login", element: <Login /> },

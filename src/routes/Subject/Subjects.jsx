@@ -9,7 +9,7 @@ const Subjects = () => {
     const getSubjects = async() => {
         try {
             const response = await axios.post("http://localhost:8080/subjects", 
-                {"id": state.courseId}
+                {"id": state.course.id}
             )
             const data = response.data;
             setSubjects(data);
@@ -39,7 +39,7 @@ const Subjects = () => {
                         <li className="Subjects" key={subject.id}>
                             <Link
                                 to="/weeks"
-                                state={{"courseId": state.courseId, "courseName": state.CourseName, "student": state, "subjectId": subject.id, "subjectName": subject.name}}
+                                state={{"course": state.course, "student": state.student, "subject": subject}}
                             >
                                 {subject.name}
                             </Link>

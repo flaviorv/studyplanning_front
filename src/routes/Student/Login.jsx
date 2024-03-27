@@ -18,7 +18,7 @@ const Login = () => {
             if(studentData.name){
                 let message = "Olá " + studentData.name;
                 alert(message);
-                navigate("/courses", {state: studentData} );
+                navigate("/courses", {state: {"student": studentData}} );
             }else{
                 let message = "Conta de estudante não existente."
                 alert(message);
