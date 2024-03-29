@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 
-const NewCourse = () => {
+const NewSubject = () => {
 
          
     const {register, handleSubmit, formState: {errors}} = useForm();
@@ -11,19 +11,19 @@ const NewCourse = () => {
     const {state} = useLocation();
     
     const onSubmit = (data) => {
-        registerCourse(data);
+        registerSubject(data);
     };
     
-    const registerCourse = async (data) => {
-        data.student = {"id": state.student.id};
+    const registerSubject = async (data) => {
+        data.course = {"id": state.course.id};
         try {
-            await axios.post("http://localhost:8080/savecourse", data);
-            let message = "Curso cadastrado com sucesso.";
+            await axios.post("http://localhost:8080/savesubject", data);
+            let message = "Matéria cadastrada com sucesso.";
             alert(message);
             alert(data);
-            navigate("/courses", {state: {"student": state.student}});
+            navigate("/subjects", {state: {"course": state.course}});
         } catch (error) {
-            let message = "Erro ao cadastrar curso."
+            let message = "Erro ao cadastrar matéria."
             console.log(error.message);
             alert(message);
         }
@@ -31,7 +31,7 @@ const NewCourse = () => {
 
     return (
         <div className="General">
-            <h3>Cadastro de Curso</h3>
+            <h3>Cadastro de Matéria</h3>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="InputGroup">
                     <label >Nome</label>
@@ -44,4 +44,4 @@ const NewCourse = () => {
     )
 
 }
-export default NewCourse;
+export default NewSubject;

@@ -13,6 +13,8 @@ import Login from "./routes/Student/Login";
 import Weeks from "./routes/Week/Weeks";
 import CurrentWeek from "./routes/Week/CurrentWeek";
 import NewCourse from "./routes/Course/NewCourse";
+import NewSubject from "./routes/Subject/NewSubject";
+import NewWeek from "./routes/Week/NewWeek";
 
 const router = createBrowserRouter([
   
@@ -23,7 +25,9 @@ const router = createBrowserRouter([
   { path: "/subjects", element: <Subjects /> },
   { path: "/weeks", element: <Weeks/>},
   { path: "/currentweek", element: <CurrentWeek/>},
-  { path: "/newcourse", element: <NewCourse/>}
+  { path: "/newcourse", element: <NewCourse/>},
+  { path: "/newsubject", element: <NewSubject/>},
+  { path: "/newweek", element: <NewWeek/>}
  
 
 ]);

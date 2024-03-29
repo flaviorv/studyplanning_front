@@ -28,11 +28,12 @@ const Subjects = () => {
             <h3>Curso</h3>
             <h2>
                 <span>curso {state.course.name} </span>
-                <span>- id estudante {state.student.id} </span>
+                <span>- id estudante {} </span>
                 <span>- id curso {state.course.id}</span>
             </h2>
             <h3>Matérias</h3>
-            <a href="/registersubject">Cadastrar Matéria</a>
+            <Link to="/newsubject" state={{"course": state.course}}>
+                Cadastrar Matéria</Link>
             <h2>
                 {subjects.length === 0 ? <span>Nenhuma matéria cadastrada por enquanto.</span> : (
                     subjects.map((subject) =>

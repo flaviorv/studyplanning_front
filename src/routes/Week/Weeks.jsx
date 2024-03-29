@@ -17,25 +17,25 @@ const Weeks = () => {
         }
     }
     
-    
     useEffect(()=>{getAllWeeks()},[])
 
     return (
-    <div>
+    <div className="General">
+        <h1>Matéria {state.subject.name} - id {state.subject.id}</h1>
         {weeks.length === 0 ? 
         <div>
             <h3>Iniciar Nova Semana de Estudos</h3>
-            <Link to="/currentweek" state={{ "course": state.course, "student": state.student, "subject": state.subject}}><button>Iniciar</button></Link>
+            <Link to="/newweek" state={{ "student": state.student, "subject": state.subject}}><button>Iniciar</button></Link>
             <p>Não há nenhuma semana concluída por enquanto.</p> 
         </div>:
         weeks[weeks.length -1].ended === false? 
         <div>
             <h3>Retomar Semana de Estudos</h3>
-            <Link to="/currentweek" state={{"course": state.course, "student": state.student, "subject": state.subject}}><button>Retomar</button></Link>
+            <Link to="/currentweek" state={{"student": state.student, "subject": state.subject}}><button>Retomar</button></Link>
         </div>:
         <div>
             <h3>Iniciar Nova Semana de Estudos</h3>
-            <Link to="/newweek" state={{"course": state.course, "student": state.student, "subject": state.subject}}><button>Iniciar</button></Link>
+            <Link to="/newweek" state={{"subject": state.subject}}><button>Iniciar</button></Link>
         </div>
         }
         {weeks.map((week) => 
