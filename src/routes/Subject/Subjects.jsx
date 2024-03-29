@@ -24,12 +24,12 @@ const Subjects = () => {
     
     
     return(
-        <div>
+        <div className="General">
             <h3>Curso</h3>
             <h2>
-                <p>curso - {state.courseName}</p>
-                <p>Id estudante{state.student.id}</p>
-                <p>Id Curso {state.courseId}</p>
+                <span>curso {state.course.name} </span>
+                <span>- id estudante {state.student.id} </span>
+                <span>- id curso {state.course.id}</span>
             </h2>
             <h3>Matérias</h3>
             <a href="/registersubject">Cadastrar Matéria</a>

@@ -11,16 +11,20 @@ import Subjects from "./routes/Subject/Subjects";
 import RegisterStudent from "./routes/Student/RegisterStudent";
 import Login from "./routes/Student/Login";
 import Weeks from "./routes/Week/Weeks";
-import CurrentWeek from "./routes/Week/CurrentWeek"
+import CurrentWeek from "./routes/Week/CurrentWeek";
+import NewCourse from "./routes/Course/NewCourse";
 
 const router = createBrowserRouter([
+  
+  { path: "/", element: <App />}, 
   { path: "/login", element: <Login /> },
   { path: "/registerstudent", element: <RegisterStudent /> },
-  { path: "/", element: <App /> },
   { path: "/courses", element: <Courses /> },
   { path: "/subjects", element: <Subjects /> },
   { path: "/weeks", element: <Weeks/>},
-  { path: "/currentweek", element: <CurrentWeek/>}
+  { path: "/currentweek", element: <CurrentWeek/>},
+  { path: "/newcourse", element: <NewCourse/>}
+ 
 
 ]);
 

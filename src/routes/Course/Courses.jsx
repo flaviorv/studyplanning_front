@@ -22,8 +22,9 @@ const Courses = () => {
     },[])
 
     return (
-        <div>
-            <h1>Courses</h1>
+        <div className="General">
+            <Link to="/newcourse" state={{"student": state.student}}>Novo Curso</Link>
+            <h1>Cursos</h1>
             <h2>
                 {courses.length === 0? <a href="">cadastrar curso</a>:(
                     courses.map((course) => 

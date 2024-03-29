@@ -26,7 +26,7 @@ const RegisterStudent = () => {
     }
 
     return (
-        <div className="Form">
+        <div className="General">
             <h3>Registro de Estudante</h3>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="InputGroup">
