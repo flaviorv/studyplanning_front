@@ -15,6 +15,7 @@ import CurrentWeek from "./routes/Week/CurrentWeek";
 import NewCourse from "./routes/Course/NewCourse";
 import NewSubject from "./routes/Subject/NewSubject";
 import NewWeek from "./routes/Week/NewWeek";
+import NewGoal from "./routes/Goal/NewGoal";
 
 const router = createBrowserRouter([
   
@@ -27,8 +28,8 @@ const router = createBrowserRouter([
   { path: "/currentweek", element: <CurrentWeek/>},
   { path: "/newcourse", element: <NewCourse/>},
   { path: "/newsubject", element: <NewSubject/>},
-  { path: "/newweek", element: <NewWeek/>}
- 
+  { path: "/newweek", element: <NewWeek/>},
+  { path: "/newgoal", element: <NewGoal/>}
 
 ]);
 

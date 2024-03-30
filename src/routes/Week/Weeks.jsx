@@ -11,7 +11,6 @@ const Weeks = () => {
             const data = response.data;
             setWeeks(data);
             console.log(data);
-            console.log(data[data.length -1])
         } catch (error) {
             console.log(error);
         }
@@ -25,13 +24,13 @@ const Weeks = () => {
         {weeks.length === 0 ? 
         <div>
             <h3>Iniciar Nova Semana de Estudos</h3>
-            <Link to="/newweek" state={{ "student": state.student, "subject": state.subject}}><button>Iniciar</button></Link>
+            <Link to="/newweek" state={{"subject": state.subject}}><button>Iniciar</button></Link>
             <p>Não há nenhuma semana concluída por enquanto.</p> 
         </div>:
         weeks[weeks.length -1].ended === false? 
         <div>
             <h3>Retomar Semana de Estudos</h3>
-            <Link to="/currentweek" state={{"student": state.student, "subject": state.subject}}><button>Retomar</button></Link>
+            <Link to="/currentweek" state={{"subject": state.subject, "week": weeks[weeks.length -1]}}><button>Retomar</button></Link>
         </div>:
         <div>
             <h3>Iniciar Nova Semana de Estudos</h3>

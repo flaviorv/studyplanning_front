@@ -15,6 +15,25 @@ a:visited{
   font-family: 'Courier New', Courier, monospace;
 }
 
+.Goals input{
+  vertical-align: middle;
+}
+
+.Goals label{
+ background-color: black;
+ width: fit-content;
+ align-self: center;
+ padding: 3px 10px;
+}
+.Goals input:hover{
+  width: 2rem;
+  height: 1.2rem;
+}
+
+.Goals{
+  margin: 50px;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
