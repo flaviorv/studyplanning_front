@@ -17,6 +17,7 @@ import NewSubject from "./routes/Subject/NewSubject";
 import NewWeek from "./routes/Week/NewWeek";
 import NewGoal from "./routes/Goal/NewGoal";
 
+
 const router = createBrowserRouter([
   
   { path: "/", element: <App />}, 
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
   { path: "/newcourse", element: <NewCourse/>},
   { path: "/newsubject", element: <NewSubject/>},
   { path: "/newweek", element: <NewWeek/>},
-  { path: "/newgoal", element: <NewGoal/>}
+  { path: "/newgoal", element: <NewGoal/>},
 
 ]);
 

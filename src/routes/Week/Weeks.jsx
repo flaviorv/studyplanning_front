@@ -16,7 +16,7 @@ const Weeks = () => {
         }
     }
     
-    useEffect(()=>{getAllWeeks()},[])
+    useEffect(()=>{getAllWeeks()})
 
     return (
     <div className="General">
@@ -30,7 +30,7 @@ const Weeks = () => {
         weeks[weeks.length -1].ended === false? 
         <div>
             <h3>Retomar Semana de Estudos</h3>
-            <Link to="/currentweek" state={{"subject": state.subject, "week": weeks[weeks.length -1]}}><button>Retomar</button></Link>
+            <Link to="/currentweek" state={{"subject": state.subject, "week": weeks[weeks.length -1], "sessionStart": true}}><button>Retomar</button></Link>
         </div>:
         <div>
             <h3>Iniciar Nova Semana de Estudos</h3>
@@ -38,12 +38,12 @@ const Weeks = () => {
         </div>
         }
         {weeks.map((week) => 
-            <div>
-                <li className="Weeks" key={week.id}>
-                    <p>Semana {week.id}</p>
-                    <p>Data de Início {week.startDay}</p>
-                </li>
-            </div>       
+            <Link to="/currentweek" state={{"week": week, "sessionStart": true}} className="Weeks" key={week.id}>
+                <p>Semana {week.id}</p>
+                <p>Data de Início {week.startDay}</p>
+                <p>Status: {week.ended? <p>encerrada</p>: <p>ativa</p>}</p>
+            </Link>
+                 
         )}
     </div>
     )

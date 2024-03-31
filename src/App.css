@@ -7,6 +7,16 @@ a:visited{
   color: rgb(218, 218, 216);;
 }
 
+.Weeks{
+  background-color: rgb(145, 153, 160);
+  padding: 5px;
+  margin: 10px;
+}
+.Weeks p{
+  background-color: rgb(145, 153, 160);
+ 
+}
+
 .General{
   margin-top: 20px;
   display: flex;
