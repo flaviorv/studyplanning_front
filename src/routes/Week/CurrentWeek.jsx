@@ -8,13 +8,12 @@ const CurrentWeek = () => {
     const {state} = useLocation();
     const [goals, setGoals] = useState([]);
     const [week, setWeek] = useState([]);
-    const [sessionStart, setSessionStart] = useState([]); session start fix
     const [feedback, setFeedback] = useState([]);
- 
+    // console.log(goals)
     const checkEnded = async() => { 
         const response = await axios.post("http://localhost:8080/generatefeedback", state.week)
-        const data = response.data;
-        setFeedback(data)
+        const data = response;
+        setFeedback(data.data)
     }
 
     const {
@@ -40,19 +39,20 @@ const CurrentWeek = () => {
         }
         data.week = {"id": data.week};
         updateGoal(data);
+        getAllGoals();
         alert("Meta alterada para " + message)
-        document.location.reload()
-       
+        // document.location.reload()
     }
 
  
     const getAllGoals = async() => {
         try {
             const response = await axios.post("http://localhost:8080/studygoals", {"id": state.week.id})
-            const data = response.data;
-            setGoals(data);
+            const data = response;
+            // console.log("==================", JSON.stringify(data))
+            setGoals(data.data);
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }
 
@@ -60,62 +60,51 @@ const CurrentWeek = () => {
         try {
             const response = await axios.put("http://localhost:8080/updatestudygoal", studyGoal)
             const data = response.data;
-            setGoals(data);
+            
+            
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }
 
     const calculateStudyTime = async() => {
         
         try {
-            const response = await axios.put("http://localhost:8080/calculatestudytime", state.week)
+            const response = await axios.put("http://localhost:8080/calculatestudytime", week)
             const data = response.data;
-            console.log(JSON.stringify(data));
+            // console.log(JSON.stringify(data));
             setWeek(data);
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }
 
-    const startSessionTime = async() => {
-        if(sessionStart){
-            
-            try {
-                const response = await axios.put("http://localhost:8080/startsessiontime", state.week)
-                const data = response.data;
-                setWeek(data);
-                console.log("startse ssiontime "+ state.sessionStart +data.startSessionTime)
-            } catch (error) {
-                console.log(error);
-            }
-        }else{
-            console.log("startse ssiontime "+ state.sessionStart +"time not updated")
-        }
-        
-    }
+    
 
     const getWeek = async() => {
         try {
             const response = await axios.post("http://localhost:8080/weekbyid", {"id": state.week.id})
             const data = response.data;
             setWeek(data);
-            console.log(data);
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     }
     
     useEffect(() => {
-        startSessionTime();
         checkEnded()
-        if(!week.ended){
-            getAllGoals()
-            calculateStudyTime();
-        }
-        
         getWeek()
-    },[])
+        getAllGoals()
+       
+    },[goals])
+   
+    //  setInterval(() => {
+    //         if(week.ended == false){
+                
+    //             // calculateStudyTime();
+    //             console.log(week.ended)
+    //             console.log("faslkdfkasdj")
+    //     }}, 1000);   
 
     return (        
 
@@ -137,7 +126,8 @@ const CurrentWeek = () => {
             <Link to="/newgoal" state={{"week": state.week}}><button>Cadastrar Meta</button></Link>
         }
         {goals.length === 0 
-        ? week.ended?
+        ? 
+        week.ended?
             <div>
                 <p>Semana Encerrada</p> 
             </div>:
@@ -145,24 +135,26 @@ const CurrentWeek = () => {
                 <p>Nenhuma meta por enquanto</p> 
             </div>
         :  
-            (goals.map((goal) => 
-               { return <div key={goal.id} className="Goals" >
+            goals?.map((goal) => 
+               {return(<td key={goal.id} className="Goals" >
                     <form   onClick={handleSubmit(onSubmit)}>
                         <button type="button" onClick={() => {
                             setValue("id", goal.id)
                             setValue("description", goal.description)
                             setValue("done", goal.done)
                             setValue("week", goal.week.id)
-                        }}>{goal.done === true 
+                        }}>{
+                            goal.done === true 
                             ? 
-                                <input id="done" type="checkbox" readOnly checked={true}  />
+                                <input id="done" type="checkbox"
+                                checked={true}  />
                             : 
-                                <input id="done" type="checkbox"  readOnly checked={false}  />
+                                <input id="done" type="checkbox"    checked={false}  />
                             }{goal.description}
                         </button>
                     </form> 
-                </div>    }   
-            ))
+                </td>    )}   
+            )
         }
             
           

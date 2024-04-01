@@ -8,12 +8,16 @@ a:visited{
 }
 
 .Weeks{
-  background-color: rgb(145, 153, 160);
+  background-color: black;
   padding: 5px;
   margin: 10px;
+  border: 2px solid darkcyan;
+  border-radius: 10px;
+  text-align: center;
 }
-.Weeks p{
-  background-color: rgb(145, 153, 160);
+.Weeks p, span{
+  background-color: black;
+  color: rgb(80, 241, 241);
  
 }
 
@@ -35,13 +39,21 @@ a:visited{
  align-self: center;
  padding: 3px 10px;
 }
-.Goals input:hover{
-  width: 2rem;
-  height: 1.2rem;
+.Goals:hover{
+  zoom: 1.2;
 }
 
 .Goals{
-  margin: 50px;
+  margin-top: 50px;
+}
+
+.Goals button{
+  display: flex;
+  margin-top: 20px;
+  width: 700px;
+  justify-content: center;
+  background-color: darkcyan;
+  
 }
 
 nav {
