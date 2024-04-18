@@ -19,18 +19,27 @@ import NewGoal from "./routes/Goal/NewGoal";
 
 
 const router = createBrowserRouter([
+
+  {
+    path: "/", element: <App />, children: [
+
+
+
+    ]
   
-  { path: "/", element: <App />}, 
+  },
   { path: "/login", element: <Login /> },
   { path: "/registerstudent", element: <RegisterStudent /> },
   { path: "/courses", element: <Courses /> },
   { path: "/subjects", element: <Subjects /> },
-  { path: "/weeks", element: <Weeks/>},
-  { path: "/currentweek", element: <CurrentWeek/>},
-  { path: "/newcourse", element: <NewCourse/>},
-  { path: "/newsubject", element: <NewSubject/>},
-  { path: "/newweek", element: <NewWeek/>},
-  { path: "/newgoal", element: <NewGoal/>},
+  { path: "/weeks", element: <Weeks /> },
+  { path: "/currentweek", element: <CurrentWeek /> },
+  { path: "/newcourse", element: <NewCourse /> },
+  { path: "/newsubject", element: <NewSubject /> },
+  { path: "/newweek", element: <NewWeek /> },
+  { path: "/newgoal", element: <NewGoal /> },
+
+
 
 ]);
 

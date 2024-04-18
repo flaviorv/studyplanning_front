@@ -1,0 +1,10 @@
+#BookImg {
+    zoom: 3;
+    display: flex;
+    align-self: center;
+}
+
+#Register{
+    align-self: center;
+    margin-top: 30px;
+}

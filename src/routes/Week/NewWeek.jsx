@@ -2,10 +2,11 @@ import {useForm} from "react-hook-form";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Navbar from "../../components/Navbar";
 
 
 const NewWeek = () => {
-         
+    
     const {register, handleSubmit, formState: {errors}} = useForm();
     const navigate = useNavigate();
     const {state} = useLocation();
@@ -31,8 +32,6 @@ const NewWeek = () => {
     const registerWeek = async (data) => {
         try {
             const response =  await axios.post("http://localhost:8080/newweek", {"id": state.subject.id});
-            let message = "Semana cadastrada com sucesso.";
-            alert(message);
             data.week = { "id": response.data.id };
             registerTimeGoal(data)
         } catch (error) {
@@ -47,8 +46,7 @@ const NewWeek = () => {
             await axios.post("http://localhost:8080/definetimegoal", timeGoal);
             let message = "Meta de tempo cadastrado com sucesso.";
             alert(message);
-            alert(JSON.stringify(timeGoal));
-            navigate("/weeks", { state: { "subject": state.subject } });
+            navigate("/weeks", { state: { "subject": state.subject, "course": state.course, "student": state.student } });
         } catch (error) {
             let message = "Erro ao cadastrar meta de tempo."
             console.log(error.message);
@@ -62,13 +60,14 @@ const NewWeek = () => {
     return (
        
         <div className="General"> 
+        <Navbar/>
         {(weeks.length != 0 && weeks[weeks.length -1].ended == false) || !state ? 
         <span>"Não é possível registrar nova semana"</span> : 
            
             <form onSubmit={handleSubmit(onSubmit)}>
-                <h3>Meta de Tempo Semanal de Estudo</h3>
+                <h3>Meta de Tempo</h3>
                 <div className="InputGroup">
-                    <label >Horas</label>
+                    <label >Minutos</label>
                     <input type="number" maxLength={50} {...register("timeGoal", {required: true})}/>
                     {errors?.name?.type === "required" && (<p className="Error">Insira as horas</p>)}
                 </div>

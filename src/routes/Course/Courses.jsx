@@ -1,9 +1,9 @@
 import {React, useState, useEffect } from "react";
 import axios from "axios";
 import {Link, useLocation} from "react-router-dom";
-
+import Navbar from "../../components/Navbar";
 const Courses = () => {
-   
+  
     const [courses, setCourses] = useState([]);
     const {state} = useLocation();
     
@@ -23,10 +23,12 @@ const Courses = () => {
 
     return (
         <div className="General">
-            <Link to="/newcourse" state={{"student": state.student}}>Novo Curso</Link>
+            <Navbar coursesPage="1"  />
             <h1>Cursos</h1>
+           <img src="book_icon.png" />
+           <Link to="/newcourse" state={{"student": state.student}}>Novo Curso</Link>
             <h2>
-                {courses.length === 0? <a href="">cadastrar curso</a>:(
+                {courses.length === 0? <a href="">Não há cursos</a>:(
                     courses.map((course) => 
                     <li className="Courses" key={course.id}>
                         <Link 

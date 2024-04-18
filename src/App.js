@@ -2,13 +2,12 @@ import './App.css';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-function App() {
+
+export default function App() {
 
   const navigate = useNavigate();
-
   useEffect(() => {
     navigate("/login");
-  },[])
-}
+  }, [])
 
-export default App;
+}

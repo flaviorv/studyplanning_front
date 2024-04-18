@@ -2,9 +2,10 @@ import {useForm} from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import Navbar from "../../components/Navbar";
 
 const NewGoal = () => {
-
+    <Navbar/>
          
     const {register, handleSubmit, formState: {errors}} = useForm();
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ const NewGoal = () => {
             await axios.post("http://localhost:8080/savestudygoal", data);
             let message = "Meta cadastrada com sucesso.";
             alert(message);
-            navigate("/currentweek", {state: {"week": state.week}});
+            navigate("/currentweek", {state: {"week": state.week, "student": state.student, "course": state.course, "subject": state.subject}});
         } catch (error) {
             let message = "Erro ao cadastrar meta."
             console.log(error.message);

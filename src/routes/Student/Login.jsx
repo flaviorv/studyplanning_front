@@ -2,6 +2,9 @@ import {useForm} from "react-hook-form";
 import validator from "validator";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import "./Student.css"
+
 
 const Login = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
@@ -30,10 +33,14 @@ const Login = () => {
             alert(message);
         }
     }
+
+    useState(false);
+    
     
     return (
         <div className="General">
-            <a href="/registerstudent">Registrar</a>
+            <h1>Study Planning  </h1>
+            <img id="BookImg" src="book_icon.png" alt=""/>
             <h3>Acessar Conta</h3>
             <form>
             <div className="InputGroup">
@@ -49,6 +56,7 @@ const Login = () => {
                     {errors?.password?.type === "required" && (<p className="Error">Insira uma senha</p>)}
                 </div>
                 <button onClick={(e) => handleSubmit(onSubmit, e.preventDefault())()}>Entrar</button>
+                <a id="Register" href="/registerstudent">Registrar-se</a>       
             </form>
         </div>
     )

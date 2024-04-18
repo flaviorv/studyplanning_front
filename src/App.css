@@ -1,6 +1,7 @@
 *{
   background-color: #282c34;
   color: rgb(218, 218, 216);
+  padding: 0px;
 }
 
 a:visited{
@@ -27,39 +28,25 @@ a:visited{
   flex-direction: column;
   align-items: center;
   font-family: 'Courier New', Courier, monospace;
+  text-align: center;
 }
 
-.Goals input{
-  vertical-align: middle;
-}
-
-.Goals label{
- background-color: black;
- width: fit-content;
- align-self: center;
- padding: 3px 10px;
-}
 .Goals:hover{
-  zoom: 1.2;
+  zoom: 1.1;
 }
 
-.Goals{
-  margin-top: 50px;
+
+.Goals {
+  margin-top: 10px;
+  width: fit-content;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.Goals button{
-  display: flex;
-  margin-top: 20px;
-  width: 700px;
-  justify-content: center;
-  background-color: darkcyan;
-  
-}
 
-nav {
-  display: flex;
-  justify-content: space-between;
-}
+
+
+
 
 .Error {
   color: crimson;
@@ -85,6 +72,12 @@ form {
   margin-bottom: 30px;
 }
 
+.Feedback {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: oblique;
+  
+}
+
 input {
   margin: 4px;
   height: 20px;
@@ -101,4 +94,16 @@ button {
   background-color: rgb(235, 108, 91);
   align-self: center;
   color: black;
+}
+
+li {
+  list-style-type: none;
+ 
+  margin: 20px 0;
+}
+
+li:hover{
+  color: red;
+  font-size: larger;
+  
 }

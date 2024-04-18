@@ -1,0 +1,32 @@
+nav {
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+    justify-content: space-between ;
+    width: 100%;
+  }
+  
+  div img {
+
+   width: 60px;
+   height: 60px;
+  }
+  
+  nav div {
+    display: flex;
+    margin-left: 20px;
+    align-items: center;
+  }
+  
+  nav h3 {
+    font-family: cursive;
+    color: antiquewhite;
+  }
+  
+  .LogoutLink {
+    margin-right: 20px;
+  }
+
+  nav h4 {
+    margin-left: 10px;
+  }
