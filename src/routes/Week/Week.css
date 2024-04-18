@@ -4,12 +4,29 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.Goals:hover{
+    zoom: 1.1;
+}
+  
+.Goals {
+    margin-top: 10px;
+    width: fit-content;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
 .Weeks{
     margin-top: 50px;
     text-decoration: none;
 }
 
-.Feedback{
+.Goals{
+    font-size: small;
+    font-style: italic;
+    cursor: pointer;
+}
+
+.Feedback {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: larger;
 }

@@ -111,7 +111,7 @@ const CurrentWeek = () => {
             <div className="Feedback">
                
                <p>Status: Encerrada</p> 
-                <h1>Feedback</h1>
+                <h1>Feedback:</h1>
                 <h2>{feedback[0]}</h2>
                 <h3>{feedback[1]}</h3>
                 <h3>{feedback[2]}</h3>

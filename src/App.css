@@ -31,17 +31,7 @@ a:visited{
   text-align: center;
 }
 
-.Goals:hover{
-  zoom: 1.1;
-}
 
-
-.Goals {
-  margin-top: 10px;
-  width: fit-content;
-  text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
 
 
 
@@ -72,11 +62,7 @@ form {
   margin-bottom: 30px;
 }
 
-.Feedback {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-style: oblique;
-  
-}
+
 
 input {
   margin: 4px;
@@ -94,6 +80,7 @@ button {
   background-color: rgb(235, 108, 91);
   align-self: center;
   color: black;
+  cursor: pointer;
 }
 
 li {
